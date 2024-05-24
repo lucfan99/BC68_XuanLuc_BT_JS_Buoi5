@@ -170,8 +170,12 @@
                       />
                     </div>
                     <div class="mb-3 chonKhuVuc col">
-                      <select class="form-select form-select" name="" id="">
-                        <option selected>Chọn khu vực</option>
+                      <select
+                        class="form-select form-select"
+                        name=""
+                        id="diemKhuVuc"
+                      >
+                        <option selected value="0">Chọn khu vực</option>
                         <option value="2">A</option>
                         <option value="1">B</option>
                         <option value="0.5">C</option>
@@ -179,8 +183,12 @@
                     </div>
 
                     <div class="mb-3 chonDoiTuong col">
-                      <select class="form-select form-select" name="" id="">
-                        <option selected>Chọn đối tượng</option>
+                      <select
+                        class="form-select form-select"
+                        name=""
+                        id="diemDoiTuong"
+                      >
+                        <option selected value="0">Chọn đối tượng</option>
                         <option value="2.5">1</option>
                         <option value="1.5">2</option>
                         <option value="1">3</option>
@@ -194,7 +202,7 @@
                         type="number"
                         class="form-control"
                         name=""
-                        id="diemChuan"
+                        id="diemMon1"
                         aria-describedby="helpId"
                         placeholder="Nhập điểm môn 1"
                       />
@@ -204,7 +212,7 @@
                         type="number"
                         class="form-control"
                         name=""
-                        id="diemChuan"
+                        id="diemMon2"
                         aria-describedby="helpId"
                         placeholder="Nhập điểm môn 2"
                       />
@@ -214,7 +222,7 @@
                         type="number"
                         class="form-control"
                         name=""
-                        id="diemChuan"
+                        id="diemMon3"
                         aria-describedby="helpId"
                         placeholder="Nhập điểm môn 3"
                       />
@@ -224,11 +232,12 @@
               </div>
             </div>
             <button
-              class="btn btn-secondary text-dark rounded-4 mt-3 btn_ketQua"
+              class="btn text-dark rounded-4 mt-3 btn_ketQua"
+              id="btn_KQBai1"
             >
               Kết Quả
             </button>
-            <p class="mt-3 hienThiKetQua opacity-25 p-3 rounded">
+            <p class="mt-3 hienThiKetQua p-3 rounded">
               <i class="fa-solid fa-greater-than"></i>
               <span class="ketQuaThi"></span>
             </p>
@@ -283,20 +292,13 @@
                             Từ 50 - 100 kW => 650đ/kW <br />
                             Từ 100 - 150 => 850đ/kW<br />
                             từ 150 - 300 => 1100đ/kW<br />
-                            từ 300 trở đi : 1300 đ/kW
+                            từ 300 trở đi : 1300 đ/kW <br />
                           </p>
                         </li>
                         <li>
-                          Nếu không thuộc khu vực hoặc đối tượng trong danh sách
-                          thì điểm khu vực và điểm đối tượng sẽ là 0
-                        </li>
-
-                        <li>
                           <h3>Đầu ra:</h3>
-                          Xuất số tiền mà chủ hộ phai trả + tên chủ hộ
+                          Xuất số tiền mà chủ hộ phải trả + tên chủ hộ
                         </li>
-
-                        <li></li>
                       </ul>
                     </div>
                   </div>
@@ -324,10 +326,11 @@
             </div>
             <button
               class="btn btn-secondary text-dark rounded-4 mt-3 btn_ketQua"
+              id="btn_TienDien"
             >
               Tính tiền điện
             </button>
-            <p class="mt-3 hienThiKetQua opacity-25 p-3 rounded">
+            <p class="mt-3 hienThiKetQua p-3 rounded">
               <i class="fa-solid fa-greater-than"></i>
               <span class="ketQuaHoaDon"></span>
             </p>
@@ -382,7 +385,8 @@
                           <p>
                             Thu nhập chịu thuế = Tổng thu nhập năm - 4tr- Số
                             người phụ thuộc * 1.6tr <br />
-                            thu nhập nhỏ hơn 60tr => Thuế xuất 5% <br />
+                            thu nhập cgiuj thuế nhỏ hơn 60tr => Thuế xuất 5%
+                            <br />
                             thu nhập từ 60tr đến 120tr => Thuế xuất 10% <br />
                             thu nhập từ 120tr đến 210tr => Thuế xuất 15%<br />
                             thu nhập từ 210tr đến 384tr => Thuế xuất 20%<br />
@@ -405,7 +409,7 @@
                       type="text"
                       class="form-control inputName col"
                       name=""
-                      id="hoTen"
+                      id="tenNguoiNopThue"
                       aria-describedby="helpId"
                       placeholder="Nhập họ tên"
                     />
@@ -421,7 +425,7 @@
                       type="number"
                       class="form-control inputKiDien col"
                       name=""
-                      id="tongThuNhap"
+                      id="soNguoi"
                       aria-describedby="helpId"
                       placeholder="Số người phụ thuộc"
                     />
@@ -430,11 +434,12 @@
               </div>
             </div>
             <button
-              class="btn btn-secondary text-dark rounded-4 mt-3 btn_ketQua"
+              class="btn text-dark rounded-4 mt-3 btn_ketQua"
+              id="btn_TienThue"
             >
               Tính tiền thuế
             </button>
-            <p class="mt-3 hienThiKetQua opacity-25 p-3 rounded">
+            <p class="mt-3 hienThiKetQua p-3 rounded">
               <i class="fa-solid fa-greater-than"></i>
               <span class="ketQuaTienThue"></span>
             </p>
@@ -554,7 +559,7 @@
             >
               Tính tiền cáp
             </button>
-            <p class="mt-3 hienThiKetQua opacity-25 p-3 rounded">
+            <p class="mt-3 hienThiKetQua p-3 rounded">
               <i class="fa-solid fa-greater-than"></i>
               <span class="ketQuaTienCap"></span>
             </p>
