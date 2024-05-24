@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bài tập JS buổi 5</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- FontAwesome 6.2.0 CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- (Optional) Use CSS or JS implementation -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"
+      integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- main css -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="d-flex">
+        <div
+          class="nav left_content flex-column align-items-center nav-pills me-3"
+          id="v-pills-tab"
+          role="tablist"
+          aria-orientation="vertical"
+        >
+          <button
+            class="nav-link active"
+            id="v-pills-home-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-Bai1"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-Bai1"
+            aria-selected="true"
+          >
+            Bài 1
+          </button>
+          <button
+            class="nav-link"
+            id="v-pills-profile-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-Bai2"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-Bai2"
+            aria-selected="false"
+          >
+            Bài 2
+          </button>
+          <button
+            class="nav-link"
+            id="v-pills-messages-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-Bai3"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-Bai3"
+            aria-selected="false"
+          >
+            Bài 3
+          </button>
+          <button
+            class="nav-link"
+            id="v-pills-settings-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-Bai4"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-Bai4"
+            aria-selected="false"
+          >
+            Bài 4
+          </button>
+        </div>
+
+        <div class="tab-content" id="v-pills-tabContent">
+          <!-- Bài 1 -->
+          <div
+            class="tab-pane fade show active"
+            id="v-pills-Bai1"
+            role="tabpanel"
+            aria-labelledby="v-pills-home-tab"
+          >
+            <h2>Quản Lý Tuyển Sinh</h2>
+            <div class="moHinh3khoi">
+              <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                  <h3>
+                    <img
+                      class="imgBongDen"
+                      src="https://png.pngtree.com/png-clipart/20240321/original/pngtree-light-bulb-symbol-png-image_14644720.png"
+                      alt=""
+                    />
+                    Gợi ý:
+                  </h3>
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseOne"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseOne"
+                    >
+                      Nhấn để xem thêm
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseOne"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingOne"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body">
+                      <ul>
+                        <li>
+                          Nhập vào điểm chuẩn, điểm 3 môn thi, chọn khu vực và
+                          đối tượng
+                        </li>
+                        <li>
+                          Tính điểm tổng kết = tổng 3 môn thi + điểm ưu tiên
+                          ,<br />
+                          trong đó điểm ưu tiên bao gồm điểm khu vực cộng với
+                          điểm đối tượng
+                        </li>
+                        <li>
+                          Nếu không thuộc khu vực hoặc đối tượng trong danh sách
+                          thì điểm khu vực và điểm đối tượng sẽ là 0
+                        </li>
+                        <li>
+                          Nếu có 1 trong 3 môn bị điểm 0 thì lặp tức cho rớt
+                          không cần kiểm tra tổng điểm có lớn hơn hoặc bằng điểm
+                          chuẩn hay không
+                        </li>
+                        <li>Cho biết thí sinh đó đậu hay rớt, kèm theo điểm</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="mb-3 inputDiemChuan col">
+                      <input
+                        type="number"
+                        class="form-control"
+                        name=""
+                        id="diemChuan"
+                        aria-describedby="helpId"
+                        placeholder="Nhập điểm chuẩn"
+                      />
+                    </div>
+                    <div class="mb-3 chonKhuVuc col">
+                      <select class="form-select form-select" name="" id="">
+                        <option selected>Chọn khu vực</option>
+                        <option value="2">A</option>
+                        <option value="1">B</option>
+                        <option value="0.5">C</option>
+                      </select>
+                    </div>
+
+                    <div class="mb-3 chonDoiTuong col">
+                      <select class="form-select form-select" name="" id="">
+                        <option selected>Chọn đối tượng</option>
+                        <option value="2.5">1</option>
+                        <option value="1.5">2</option>
+                        <option value="1">3</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="mb-3 inputDiemChuan col">
+                      <input
+                        type="number"
+                        class="form-control"
+                        name=""
+                        id="diemChuan"
+                        aria-describedby="helpId"
+                        placeholder="Nhập điểm môn 1"
+                      />
+                    </div>
+                    <div class="mb-3 inputDiemChuan col">
+                      <input
+                        type="number"
+                        class="form-control"
+                        name=""
+                        id="diemChuan"
+                        aria-describedby="helpId"
+                        placeholder="Nhập điểm môn 2"
+                      />
+                    </div>
+                    <div class="mb-3 inputDiemChuan col">
+                      <input
+                        type="number"
+                        class="form-control"
+                        name=""
+                        id="diemChuan"
+                        aria-describedby="helpId"
+                        placeholder="Nhập điểm môn 3"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="btn btn-secondary text-dark rounded-4 mt-3 btn_ketQua"
+            >
+              Kết Quả
+            </button>
+            <p class="mt-3 hienThiKetQua opacity-25 p-3 rounded">
+              <i class="fa-solid fa-greater-than"></i>
+              <span class="ketQuaThi"></span>
+            </p>
+          </div>
+          <!-- bài 2 -->
+          <div
+            class="tab-pane fade"
+            id="v-pills-Bai2"
+            role="tabpanel"
+            aria-labelledby="v-pills-profile-tab"
+          >
+            <h2>Tính tiền điện</h2>
+            <div class="moHinh3khoi">
+              <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                  <h3>
+                    <img
+                      class="imgBongDen"
+                      src="https://png.pngtree.com/png-clipart/20240321/original/pngtree-light-bulb-symbol-png-image_14644720.png"
+                      alt=""
+                    />
+                    Gợi ý:
+                  </h3>
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseOne"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseOne"
+                    >
+                      Nhấn để xem thêm
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseOne"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingOne"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body">
+                      <ul>
+                        <li>
+                          <h3>Đầu vào :</h3>
+                          Nhập vào Họ tên chủ hộ và số kw tiêu thụ
+                        </li>
+                        <li>
+                          <h3>Xử lý:</h3>
+                          <p>
+                            50kW đầu => 500đ/kw <br />
+                            Từ 50 - 100 kW => 650đ/kW <br />
+                            Từ 100 - 150 => 850đ/kW<br />
+                            từ 150 - 300 => 1100đ/kW<br />
+                            từ 300 trở đi : 1300 đ/kW
+                          </p>
+                        </li>
+                        <li>
+                          Nếu không thuộc khu vực hoặc đối tượng trong danh sách
+                          thì điểm khu vực và điểm đối tượng sẽ là 0
+                        </li>
+
+                        <li>
+                          <h3>Đầu ra:</h3>
+                          Xuất số tiền mà chủ hộ phai trả + tên chủ hộ
+                        </li>
+
+                        <li></li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="mb-3 row justify-content-between">
+                    <input
+                      type="text"
+                      class="form-control inputName col"
+                      name=""
+                      id="tenChuHo"
+                      aria-describedby="helpId"
+                      placeholder="Nhập Tên chủ hộ"
+                    />
+                    <input
+                      type="number"
+                      class="form-control inputKiDien col"
+                      name=""
+                      id="soKw"
+                      aria-describedby="helpId"
+                      placeholder="Nhập số kí điện"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="btn btn-secondary text-dark rounded-4 mt-3 btn_ketQua"
+            >
+              Tính tiền điện
+            </button>
+            <p class="mt-3 hienThiKetQua opacity-25 p-3 rounded">
+              <i class="fa-solid fa-greater-than"></i>
+              <span class="ketQuaHoaDon"></span>
+            </p>
+          </div>
+          <!-- Bai 3 -->
+          <div
+            class="tab-pane fade"
+            id="v-pills-Bai3"
+            role="tabpanel"
+            aria-labelledby="v-pills-messages-tab"
+          >
+            <h2>Tính thuế thu nhập cá nhân</h2>
+            <div class="moHinh3khoi">
+              <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                  <h3>
+                    <img
+                      class="imgBongDen"
+                      src="https://png.pngtree.com/png-clipart/20240321/original/pngtree-light-bulb-symbol-png-image_14644720.png"
+                      alt=""
+                    />
+                    Gợi ý:
+                  </h3>
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseOne"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseOne"
+                    >
+                      Nhấn để xem thêm
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseOne"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingOne"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body">
+                      <ul>
+                        <li>
+                          <h3>Đầu vào :</h3>
+                          Nhập vào Họ tên <br />
+                          Nhập tổng thu nhập năm <br />
+                          Nhập số người phụ thuộc
+                        </li>
+                        <li>
+                          <h3>Xử lý:</h3>
+                          <p>
+                            Thu nhập chịu thuế = Tổng thu nhập năm - 4tr- Số
+                            người phụ thuộc * 1.6tr <br />
+                            thu nhập nhỏ hơn 60tr => Thuế xuất 5% <br />
+                            thu nhập từ 60tr đến 120tr => Thuế xuất 10% <br />
+                            thu nhập từ 120tr đến 210tr => Thuế xuất 15%<br />
+                            thu nhập từ 210tr đến 384tr => Thuế xuất 20%<br />
+                            thu nhập từ 384tr đến 624tr => Thuế xuất 25%<br />
+                            thu nhập từ 624tr đến 960tr => Thuế xuất 30% <br />
+                            thu nhập từ 960tr trở lên => Thuế xuất 35%
+                          </p>
+                        </li>
+
+                        <li>
+                          <h3>Đầu ra:</h3>
+                          Xuất số tiền thuế thu nhập cá nhân
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="mb-3 row justify-content-between">
+                    <input
+                      type="text"
+                      class="form-control inputName col"
+                      name=""
+                      id="hoTen"
+                      aria-describedby="helpId"
+                      placeholder="Nhập họ tên"
+                    />
+                    <input
+                      type="number"
+                      class="form-control inputKiDien col"
+                      name=""
+                      id="tongThuNhap"
+                      aria-describedby="helpId"
+                      placeholder="Tổng thu nhập năm"
+                    />
+                    <input
+                      type="number"
+                      class="form-control inputKiDien col"
+                      name=""
+                      id="tongThuNhap"
+                      aria-describedby="helpId"
+                      placeholder="Số người phụ thuộc"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="btn btn-secondary text-dark rounded-4 mt-3 btn_ketQua"
+            >
+              Tính tiền thuế
+            </button>
+            <p class="mt-3 hienThiKetQua opacity-25 p-3 rounded">
+              <i class="fa-solid fa-greater-than"></i>
+              <span class="ketQuaTienThue"></span>
+            </p>
+          </div>
+          <!-- Bài 4 -->
+          <div
+            class="tab-pane fade"
+            id="v-pills-Bai4"
+            role="tabpanel"
+            aria-labelledby="v-pills-settings-tab"
+          >
+            <h2>Tính tiền cáp</h2>
+            <div class="moHinh3khoi">
+              <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                  <h3>
+                    <img
+                      class="imgBongDen"
+                      src="https://png.pngtree.com/png-clipart/20240321/original/pngtree-light-bulb-symbol-png-image_14644720.png"
+                      alt=""
+                    />
+                    Gợi ý:
+                  </h3>
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseOne"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseOne"
+                    >
+                      Nhấn để xem thêm
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseOne"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingOne"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body">
+                      <ul>
+                        <li>
+                          <h3>Đầu vào :</h3>
+                          Nhập vào điểm chuẩn, điểm 3 môn thi, chọn khu vực và
+                          đối tượng
+                        </li>
+                        <li>
+                          <h3>Xử lý:</h3>
+                          Sử dụng event onchange của dropdown để xử lý ẩn hiện
+                          cho ô nhập số kết nối khi chọn loại khách hàng Đối với
+                          loại khách hàng Doanh Nghiệp, tổng 10 kết nối đầu là
+                          75$ => đây là giá trọn gói, nếu doanh nghiệp lắp đặt
+                          số kết nối nhỏ hơn 10 thì vẫn phải đóng 75$. Vd: 6 kết
+                          nối thì vẫn sẽ cộng 75$ vào tổng tiền. => Nếu lắp trên
+                          10 kết nối thì kết nối thứ 11 trở đi sẽ tính 5$/kết
+                          nối.
+                        </li>
+                        <li>
+                          <h3>Đầu ra :</h3>
+                          Giá tiền cáp ứng với loại khách hàng
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="mb-3 inputTen col-4">
+                      <div class="mb-3">
+                        <select
+                          class="form-select form-select-lg"
+                          name=""
+                          id="selectLoaiKH"
+                        >
+                          <option selected>Chọn loại khách hàng</option>
+                          <option value="1">Nhà dân</option>
+                          <option value="2">Doanh nghiệp</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="mb-3 inputMaKhachHang col-4">
+                      <input
+                        type="number"
+                        class="form-control"
+                        name=""
+                        id="maKhachHang"
+                        aria-describedby="helpId"
+                        placeholder="Nhập mã khách hàng"
+                      />
+                    </div>
+                    <div class="mb-3 inputSoKenhCaoCap col-4">
+                      <input
+                        type="number"
+                        class="form-control"
+                        name=""
+                        id="soKenhCaoCap"
+                        aria-describedby="helpId"
+                        placeholder="Nhập số kênh cao cấp"
+                      />
+                    </div>
+                    <div class="mb-3 inputSoketNoi col-4">
+                      <input
+                        type="number"
+                        class="form-control"
+                        name=""
+                        id="soKetNoi"
+                        aria-describedby="helpId"
+                        placeholder="Nhập số kết nối"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="btn btn-secondary text-dark rounded-4 mt-3 btn_ketQua"
+            >
+              Tính tiền cáp
+            </button>
+            <p class="mt-3 hienThiKetQua opacity-25 p-3 rounded">
+              <i class="fa-solid fa-greater-than"></i>
+              <span class="ketQuaTienCap"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+    <!-- js -->
+    <script src="./index.js"></script>
+  </body>
+</html>

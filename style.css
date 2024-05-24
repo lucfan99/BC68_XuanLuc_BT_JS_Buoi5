@@ -1,0 +1,99 @@
+.container {
+  width: 1200px;
+  margin: 2.5rem 10rem;
+  padding: 2.5rem 10rem;
+  min-width: fit-content;
+  border: 3px solid rgba(32, 32, 176, 0.64);
+  border-radius: 10px;
+  border-style: inset;
+  background-image: url(https://i.pinimg.com/736x/42/78/3c/42783c5c7c01a8ccafc9224b8a121680.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.moHinh3khoi {
+  position: relative;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.accordion {
+  background-color: bisque;
+  --bs-accordion-bg: none;
+  padding: 0 20px;
+}
+.nav-link {
+  color: white;
+  font-size: 1.5rem;
+}
+.nav-link:hover {
+  color: deeppink;
+}
+.moHinh3khoi::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 5px;
+  background-color: brown;
+}
+.accordion-button:focus {
+  box-shadow: none;
+}
+.accordion-flush .accordion-item .accordion-button {
+  border-radius: 5px;
+}
+.imgBongDen {
+  width: 45px;
+  background-color: transparent;
+}
+/* Bài 1 */
+.left_content {
+  width: 20%;
+  transition: all 0.5s;
+  line-height: 2;
+  text-align: center;
+  align-items: center;
+  border: 1px solid black;
+  height: 50%;
+  padding: 20px;
+  box-shadow: #f69d3c;
+  background-image: url(https://www.agro-chemistry.com/wp-content/uploads/2018/04/Maisveld-1920x1280.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.left_content .nav-link {
+  width: 8rem;
+}
+.tab-content {
+  width: 80%;
+}
+.accordion-button {
+  width: 40%;
+}
+.btn_ketQua {
+  background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+}
+.hienThiKetQua {
+  background-color: darkkhaki;
+  color: black;
+}
+svg:not(:host).svg-inline--fa,
+svg:not(:root).svg-inline--fa {
+  font-weight: bold;
+  color: red;
+}
+/* Bài 2 */
+.inputKiDien,
+.inputName {
+  /* width: 40px; */
+  margin-left: 30px;
+  margin-bottom: 20px;
+}
+/* Bài 4 */
+.form-select {
+  font-size: 16px;
+  width: auto;
+}
+.inputSoketNoi {
+}
