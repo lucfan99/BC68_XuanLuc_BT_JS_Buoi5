@@ -65,6 +65,13 @@ document.getElementById("btn_TienDien").onclick = () => {
   )}`;
 };
 // Bài 3
+// const formatCash = (n) => {
+//   if (n < 1e6) return n;
+//   if (n >= 1e6 && n < 1e9) return +(n / 1e6).toFixed(1) + "e + 6";
+// };
+
+// console.log(formatCash(2500));
+
 document.getElementById("btn_TienThue").onclick = () => {
   let ten = document.getElementById("tenNguoiNopThue").value;
   let thuNhapNam = document.getElementById("tongThuNhap").value * 1;
@@ -121,9 +128,10 @@ document.getElementById("btn_TienThue").onclick = () => {
   }
   document.querySelector(
     ".ketQuaTienThue"
-  ).innerHTML = `Anh/Chị: ${ten} - Tiền thuế thu nhập cá nhân: ${soTienNopThue.toLocaleString()}`;
+  ).innerHTML = `Anh/Chị: ${ten} - Tiền thuế thu nhập cá nhân: ${soTienNopThue}`;
 };
 // Bài 5
+
 document.getElementById("selectLoaiKH").onchange = function () {
   hienSoKetNoi();
 };
@@ -143,6 +151,8 @@ const giaXLHD = (loaiKH) => {
       return 4.5;
     case 2:
       return 15;
+    case 0:
+      return false;
   }
 };
 const giaDVCB = (loaiKH, soKetNoi) => {
@@ -156,6 +166,8 @@ const giaDVCB = (loaiKH, soKetNoi) => {
       } else {
         return 75 + (soKetNoi - 10) * 5;
       }
+    case 0:
+      return false;
   }
 };
 const thueKenhCC = (loaiKH, soKenhCaoCap) => {
@@ -164,6 +176,8 @@ const thueKenhCC = (loaiKH, soKenhCaoCap) => {
       return 7.5 * soKenhCaoCap;
     case 2:
       return 50 * soKenhCaoCap;
+    case 0:
+      return false;
   }
 };
 
@@ -172,6 +186,10 @@ document.getElementById("btn_TinhTienCap").onclick = () => {
   let maKH = document.getElementById("maKhachHang").value;
   let soKenhCC = document.getElementById("soKenhCaoCap").value * 1;
   // console.log(typeof loaiKH);
+  if (maKH == 0) {
+    alert("Mời nhập vào mã số khách hàng");
+    return false;
+  }
   let soKeNoi = document.getElementById("soKetNoi").value * 1;
   let priceDVCB = giaDVCB(loaiKH, soKeNoi);
   let priceXLHD = giaXLHD(loaiKH);
