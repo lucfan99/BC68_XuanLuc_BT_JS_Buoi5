@@ -491,13 +491,13 @@
                         <li>
                           <h3>Xử lý:</h3>
                           Sử dụng event onchange của dropdown để xử lý ẩn hiện
-                          cho ô nhập số kết nối khi chọn loại khách hàng Đối với
-                          loại khách hàng Doanh Nghiệp, tổng 10 kết nối đầu là
-                          75$ => đây là giá trọn gói, nếu doanh nghiệp lắp đặt
-                          số kết nối nhỏ hơn 10 thì vẫn phải đóng 75$. Vd: 6 kết
-                          nối thì vẫn sẽ cộng 75$ vào tổng tiền. => Nếu lắp trên
-                          10 kết nối thì kết nối thứ 11 trở đi sẽ tính 5$/kết
-                          nối.
+                          cho ô nhập số kết nối khi chọn loại khách hàng <br />
+                          Đối với loại khách hàng Doanh Nghiệp, tổng 10 kết nối
+                          đầu là 75$ => đây là giá trọn gói, nếu doanh nghiệp
+                          lắp đặt số kết nối nhỏ hơn 10 thì vẫn phải đóng 75$.
+                          Vd: 6 kết nối thì vẫn sẽ cộng 75$ vào tổng tiền. =>
+                          Nếu lắp trên 10 kết nối thì kết nối thứ 11 trở đi sẽ
+                          tính 5$/kết nối.
                         </li>
                         <li>
                           <h3>Đầu ra :</h3>
@@ -514,7 +514,9 @@
                           name=""
                           id="selectLoaiKH"
                         >
-                          <option selected>Chọn loại khách hàng</option>
+                          <option selected value="0">
+                            Chọn loại khách hàng
+                          </option>
                           <option value="1">Nhà dân</option>
                           <option value="2">Doanh nghiệp</option>
                         </select>
@@ -522,7 +524,7 @@
                     </div>
                     <div class="mb-3 inputMaKhachHang col-4">
                       <input
-                        type="number"
+                        type="text"
                         class="form-control"
                         name=""
                         id="maKhachHang"
@@ -540,7 +542,7 @@
                         placeholder="Nhập số kênh cao cấp"
                       />
                     </div>
-                    <div class="mb-3 inputSoketNoi col-4">
+                    <div class="mb-3 ipSoketNoi col-4" id="inputSoketNoi">
                       <input
                         type="number"
                         class="form-control"
@@ -556,6 +558,7 @@
             </div>
             <button
               class="btn btn-secondary text-dark rounded-4 mt-3 btn_ketQua"
+              id="btn_TinhTienCap"
             >
               Tính tiền cáp
             </button>

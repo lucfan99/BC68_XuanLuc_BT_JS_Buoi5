@@ -123,3 +123,66 @@ document.getElementById("btn_TienThue").onclick = () => {
     ".ketQuaTienThue"
   ).innerHTML = `Anh/Chị: ${ten} - Tiền thuế thu nhập cá nhân: ${soTienNopThue.toLocaleString()}`;
 };
+// Bài 5
+document.getElementById("selectLoaiKH").onchange = function () {
+  hienSoKetNoi();
+};
+function hienSoKetNoi() {
+  let loaiKH = document.getElementById("selectLoaiKH").value;
+  if (loaiKH == 2) {
+    document.getElementById("inputSoketNoi").className = "d-block";
+  } else if (loaiKH == 1) {
+    document.getElementById("inputSoketNoi").className = "d-none";
+  } else {
+    return false;
+  }
+}
+const giaXLHD = (loaiKH) => {
+  switch (loaiKH) {
+    case 1:
+      return 4.5;
+    case 2:
+      return 15;
+  }
+};
+const giaDVCB = (loaiKH, soKetNoi) => {
+  switch (loaiKH) {
+    case 1:
+      return 20.5;
+
+    case 2:
+      if (soKetNoi <= 10) {
+        return 75;
+      } else {
+        return 75 + (soKetNoi - 10) * 5;
+      }
+  }
+};
+const thueKenhCC = (loaiKH, soKenhCaoCap) => {
+  switch (loaiKH) {
+    case 1:
+      return 7.5 * soKenhCaoCap;
+    case 2:
+      return 50 * soKenhCaoCap;
+  }
+};
+
+document.getElementById("btn_TinhTienCap").onclick = () => {
+  let loaiKH = document.getElementById("selectLoaiKH").value * 1;
+  let maKH = document.getElementById("maKhachHang").value;
+  let soKenhCC = document.getElementById("soKenhCaoCap").value * 1;
+  // console.log(typeof loaiKH);
+  let soKeNoi = document.getElementById("soKetNoi").value * 1;
+  let priceDVCB = giaDVCB(loaiKH, soKeNoi);
+  let priceXLHD = giaXLHD(loaiKH);
+  let priceKenhCC = thueKenhCC(loaiKH, soKenhCC);
+  console.log(priceKenhCC);
+  let tongTien = priceDVCB + priceXLHD + priceKenhCC;
+  // console.log(tongTien);
+  document.querySelector(
+    ".ketQuaTienCap"
+  ).innerHTML = `Mã khách hàng: ${maKH} - Tiền cáp: ${tongTien.toLocaleString(
+    "en-US",
+    { style: "currency", currency: "USD" }
+  )} `;
+};
