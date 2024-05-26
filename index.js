@@ -72,10 +72,10 @@ document.getElementById("btn_TienDien").onclick = () => {
 
 // console.log(formatCash(2500));
 
+let thuNhapNam = document.getElementById("tongThuNhap").value * 1;
+let soNguoiPT = document.getElementById("soNguoi").value * 1;
 document.getElementById("btn_TienThue").onclick = () => {
   let ten = document.getElementById("tenNguoiNopThue").value;
-  let thuNhapNam = document.getElementById("tongThuNhap").value * 1;
-  let soNguoiPT = document.getElementById("soNguoi").value * 1;
   let thuNhapChiuThue = thuNhapNam - 4000000 - soNguoiPT * 1600000;
   let soTienNopThue = 0;
   const thue1 = 5 / 100;
@@ -85,6 +85,10 @@ document.getElementById("btn_TienThue").onclick = () => {
   const thue5 = 25 / 100;
   const thue6 = 30 / 100;
   const thue7 = 35 / 100;
+  // let conNum = convert(thuNhapNam);
+  console.log(ten);
+  // document.getElementById("tongThuNhap").innerHTML = conNum;
+
   //   console.log(thue1);
   if (thuNhapChiuThue > 0 && thuNhapChiuThue <= 60000000) {
     soTienNopThue = thuNhapChiuThue * thue1;
@@ -130,6 +134,22 @@ document.getElementById("btn_TienThue").onclick = () => {
     ".ketQuaTienThue"
   ).innerHTML = `Anh/Chị: ${ten} - Tiền thuế thu nhập cá nhân: ${soTienNopThue}`;
 };
+
+// Function to convert
+// let n = 12000000;
+let convert = (n) => {
+  if (n >= 1e6 && n < 1e9) return +(n / 1e6).toFixed(1) + "e+6";
+};
+
+document.getElementById("tongThuNhap").onchange = function () {
+  convert(thuNhapNam);
+};
+// Function to display converted output
+// function convertNum() {
+//   // Display output
+//   console.log("Number = " + convert(n));
+// }
+
 // Bài 5
 
 document.getElementById("selectLoaiKH").onchange = function () {
